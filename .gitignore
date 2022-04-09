@@ -27,6 +27,7 @@
 *.lib
 
 # Executables
-*.exe
+/String compression/*.exe
+/Create ArrayList/*.exe
 *.out
 *.app
