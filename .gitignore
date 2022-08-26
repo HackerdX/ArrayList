@@ -31,3 +31,5 @@
 /Create ArrayList/*.exe
 *.out
 *.app
+
+.vscode
