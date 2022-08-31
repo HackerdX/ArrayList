@@ -47,15 +47,20 @@ Node* deleteNode(Node *head, int position){
     if (head == NULL) return NULL;
     if (position >= head->size()) position = head->size() - 1;
     head->decrementSize();
+    Node *temp = head;
     if (position == 0) {
-        return head->next;
+        head = head->next;
+        free(temp);
+        return head;
     } else {
         int loop = position - 1;
         Node *temp = head;
         while (loop-- > 0) {
             temp = temp->next;
         }
+        Node *deleteNode = temp->next;
         temp->next = temp->next->next;
+        free(deleteNode);
         return head;
     }
 }
@@ -89,10 +94,10 @@ int main(){
     Node *head = createNodes(10);
     printNodes(head, head->size());
     cout << "Size of Linked List is: " << head->size() << "\n";
-    head = insertNode(head, 1, 120);
+    head = insertNode(head, 14, 120);
     printNodes(head, head->size());
     cout << "Size of Linked List is: " << head->size() << "\n";
-    head = deleteNode(head, 8);
+    head = deleteNode(head, 13);
     printNodes(head, head->size());
     cout << "Size of Linked List is: " << head->size() << "\n";
     return 0;
